@@ -65,10 +65,10 @@
     <Compile Include="Step2_CookControllerTimer.cs" />
     <Compile Include="Step3_CookControlerDisplay.cs" />
     <Compile Include="Step4_CookControlerUserInterface.cs" />
-    <Compile Include="Step5_Output.cs" />
-    <Compile Include="Step6_UserInterface.cs" />
-    <Compile Include="Step7_Door.cs" />
-    <Compile Include="Step8_Button.cs" />
+    <Compile Include="Step5_UserInterfaceDoor.cs" />
+    <Compile Include="Step6_UserInterfaceButton.cs" />
+    <Compile Include="Step7_UserInterfaceLight.cs" />
+    <Compile Include="Step8_UserInterfaceDisplay.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

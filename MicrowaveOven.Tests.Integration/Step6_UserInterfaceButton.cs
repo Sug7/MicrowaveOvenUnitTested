@@ -7,7 +7,7 @@ using NUnit.Framework;
 
 namespace MicrowaveOven.Tests.Integration
 {
-    class Step6_UserInterface
+    class Step6_UserInterfaceButton
     {
     }
 }
