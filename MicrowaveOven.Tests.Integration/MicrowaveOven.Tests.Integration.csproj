@@ -64,7 +64,7 @@
     <Compile Include="Step1_CookControllerPowerTube.cs" />
     <Compile Include="Step2_CookControllerTimer.cs" />
     <Compile Include="Step3_CookControlerDisplay.cs" />
-    <Compile Include="Step4_Light.cs" />
+    <Compile Include="Step4_CookControlerUserInterface.cs" />
     <Compile Include="Step5_Output.cs" />
     <Compile Include="Step6_UserInterface.cs" />
     <Compile Include="Step7_Door.cs" />

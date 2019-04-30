@@ -12,34 +12,30 @@ using NUnit.Framework;
 namespace MicrowaveOven.Tests.Integration
 {
     [TestFixture]
-    public class Step3_CookControlerDisplay
+    class Step4_CookControlerUserInterface
     {
         private ICookController _cookController;
         private ITimer _timer;
         private IPowerTube _powerTube;
         private IDisplay _display;
         private IOutput _output;
+        private IUserInterface _userInterface;
+        private IButton _powerButton;
+        private IButton _timeButton;
+        private IDoor _door;
+        private ILight _light;
 
-
-        [SetUp] // Definerer stubbe og rigtige klasser
+        [SetUp]
         public void SetUp()
         {
             _output = Substitute.For<IOutput>();
             _display = new Display(_output);
-            _powerTube = Substitute.For<IPowerTube>();
-            _timer = Substitute.For<ITimer>();
+            _powerTube = new PowerTube(_output);
+            _timer = new Timer();
             _cookController = new CookController(_timer, _display, _powerTube);
+            _powerButton = Substitute.For<IButton>();
+
         }
 
-        [TestCase(60, "01:00")]
-        [TestCase(59, "00:59")]
-        [TestCase(61, "01:01")]
-        public void Display_StartTime_ShowTimeRemaining(int time, string outputStr)
-        {
-            _cookController.StartCooking(50, time);
-            _timer.TimeRemaining.Returns(time);
-            _timer.TimerTick += Raise.EventWith(this, new EventArgs());
-            _output.Received().OutputLine(Arg.Is<string>(str => str.Contains(outputStr)));
-        }
     }
 }
