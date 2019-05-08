@@ -40,7 +40,7 @@ namespace MicrowaveOven.Tests.Integration
             _door = Substitute.For<IDoor>();
             _light = Substitute.For<ILight>();
             _userInterface = new UserInterface(_powerButton, _timeButton, _startCancelButton, _door, _display, _light, _cookController);
-            _cookController.UI = _userInterface;
+            //_cookController.UI = _userInterface;
         }
 
         [Test]
@@ -49,7 +49,17 @@ namespace MicrowaveOven.Tests.Integration
             _powerButton.Pressed += Raise.EventWith(this, EventArgs.Empty);
             _timeButton.Pressed += Raise.EventWith(this, EventArgs.Empty);
             _startCancelButton.Pressed += Raise.EventWith(this, EventArgs.Empty);
-            _output.Received().OutputLine(Arg.Is<string>(str => str.Contains("70")));
+            _output.Received().OutputLine(Arg.Is<string>(str => str.Contains("50")));
+        }
+
+        [Test]
+        public void UserInterface_OnPowerPressed2_Power()
+        {
+            _powerButton.Press();
+            _powerButton.Press();
+            _timeButton.Press();
+            _startCancelButton.Press();
+            _output.Received().OutputLine(Arg.Is<string>(str => str.Contains("100")));
         }
 
     }
